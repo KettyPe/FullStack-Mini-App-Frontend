@@ -10,7 +10,7 @@ import { TagsBlock } from '../components/TagsBlock';
 import { CommentsBlock } from '../components/CommentsBlock';
 
 export const Home = () => {
-  React.useEffect(() =>{
+  React.useEffect(() => {
     axios.get('/posts');
   }, [])
 
@@ -24,6 +24,7 @@ export const Home = () => {
         <Grid xs={8} item>
           {[...Array(5)].map(() => (
             <Post
+              key={Math.random()}
               id={1}
               title="Roast the code #1 | Rock Paper Scissors"
               imageUrl="https://avatars.mds.yandex.net/i?id=2e7f26d6f7dd704df7d209a5e0e7c54c_l-11547894-images-thumbs&n=13"

@@ -16,6 +16,7 @@ export const TagsBlock = ({ items, isLoading = true }) => {
       <List>
         {(isLoading ? [...Array(5)] : items).map((name, i) => (
           <a
+            key={Math.random()}
             style={{ textDecoration: "none", color: "black" }}
             href={`/tags/${name}`}
           >
