@@ -41,11 +41,7 @@ export const Home = () => {
                 id={obj._id}
                 title={obj.title}
                 imageUrl="https://avatars.mds.yandex.net/i?id=2e7f26d6f7dd704df7d209a5e0e7c54c_l-11547894-images-thumbs&n=13"
-                user={{
-                  avatarUrl:
-                    'https://img.freepik.com/premium-vector/litle-strawberry-cartoon-commercial-use_54889-1126.jpg?semt=ais_hybrid',
-                  fullName: 'Keff',
-                }}
+                user={obj.user}
                 createdAt={obj.createdAt}
                 viewsCount={obj.viewsCount}
                 commentsCount={3}
