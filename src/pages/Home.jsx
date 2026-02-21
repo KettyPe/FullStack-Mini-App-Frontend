@@ -40,7 +40,7 @@ export const Home = () => {
                 key={index}
                 id={obj._id}
                 title={obj.title}
-                imageUrl="https://avatars.mds.yandex.net/i?id=2e7f26d6f7dd704df7d209a5e0e7c54c_l-11547894-images-thumbs&n=13"
+                imageUrl={obj.imageUrl}
                 user={obj.user}
                 createdAt={obj.createdAt}
                 viewsCount={obj.viewsCount}
