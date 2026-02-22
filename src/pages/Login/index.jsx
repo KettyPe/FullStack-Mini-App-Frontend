@@ -1,23 +1,27 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from 'react-redux';
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 
+import { fetchAuth } from "../../redux/slices/auth";
+
 import styles from "./Login.module.scss";
 
 export const Login = () => {
+  const dispatch = useDispatch()
   const { register, handleSubmit, setError, formState: { errors, isValid } } = useForm({
     defaultValues: {
-      email: '',
-      password: ''
+      email: 'moretest@mail.ru',
+      password: '12345'
     },
     mode: 'onChange'
   })
 
   const onSubmit = (data) => {
-    console.log(data)
+    dispatch(fetchAuth(data))
   }
 
   return (
