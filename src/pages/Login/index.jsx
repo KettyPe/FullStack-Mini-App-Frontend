@@ -22,11 +22,17 @@ export const Login = () => {
     mode: 'onChange'
   })
 
-  const onSubmit = (data) => {
-    dispatch(fetchAuth(data))
-  }
+  const onSubmit = async (value) => {
+    const data = await dispatch(fetchAuth(value))
 
-  console.log('isAuth', isAuth)
+    if(!data.payload) {
+      return alert('Не удалось авторизироваться');
+    }
+
+    if('token' in data.payload) {
+      window.localStorage.setItem('token', data.payload.token)
+    }
+  }
 
   if(isAuth) {
     return <Navigate to="/" />;

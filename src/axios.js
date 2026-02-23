@@ -4,6 +4,10 @@ const instance = axios.create({
      baseURL: 'http://localhost:444'
 })
 
-// axios.get('http://localhost:444/posts') => axios.get('/posts')
+instance.interceptors.request.use((config) => {
+     config.headers.Autorization = window.localStorage.getItem('token')
+
+     return config;
+})
 
 export default instance
