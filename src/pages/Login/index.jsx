@@ -1,17 +1,19 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Navigate } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 
-import { fetchAuth } from "../../redux/slices/auth";
+import { fetchAuth, selectIsAuth } from "../../redux/slices/auth";
 
 import styles from "./Login.module.scss";
 
 export const Login = () => {
-  const dispatch = useDispatch()
+  const isAuth = useSelector(selectIsAuth);
+  const dispatch = useDispatch();
   const { register, handleSubmit, setError, formState: { errors, isValid } } = useForm({
     defaultValues: {
       email: 'moretest@mail.ru',
@@ -22,6 +24,12 @@ export const Login = () => {
 
   const onSubmit = (data) => {
     dispatch(fetchAuth(data))
+  }
+
+  console.log('isAuth', isAuth)
+
+  if(isAuth) {
+    return <Navigate to="/" />;
   }
 
   return (
