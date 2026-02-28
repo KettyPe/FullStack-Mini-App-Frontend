@@ -33,7 +33,7 @@ export const FullPost = () => {
   return (
     <>
       <Post
-        id={data.id}
+        id={data._id}
         title={data.title}
         imageUrl={data.imageUrl ? `http://localhost:444${data.imageUrl}` : ""}
         user={data.user}
